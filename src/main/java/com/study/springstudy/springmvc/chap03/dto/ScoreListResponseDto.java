@@ -26,6 +26,7 @@ public class ScoreListResponseDto {
         }
 
         return maskedName;
+        
     }
 
 
