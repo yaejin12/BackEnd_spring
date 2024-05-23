@@ -5,29 +5,25 @@ import lombok.Getter;
 
 @Getter
 public class ScoreListResponseDto {
+
     private long stuNum;
     private String maskingName; // 첫글자 빼고 모두 *처리
     private double average;
     private String grade;
 
-    public ScoreListResponseDto(Score s){
+    public ScoreListResponseDto(Score s) {
         this.stuNum = s.getStuNum();
-        this.maskingName = makeMarskingName(s.getStuName());
+        this.maskingName = makeMaskingName(s.getStuName());
         this.average = s.getAverage();
         this.grade = s.getGrade().toString();
     }
 
-    private String makeMarskingName(String stuName) {
-
+    private String makeMaskingName(String stuName) {
         char firstLetter = stuName.charAt(0);
         String maskedName = "" + firstLetter;
-        for (int i = 0; i < stuName.length()-1; i++) {
+        for (int i = 0; i < stuName.length() - 1; i++) {
             maskedName += "*";
         }
-
         return maskedName;
-        
     }
-
-
 }
